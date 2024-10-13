@@ -1,19 +1,10 @@
-name: Hello World Workflow
-
-# Trigger the workflow on push to the main branch or on any pull request.
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types: [locked, labeled]
 
 jobs:
-  hello-world-job:
+  test:
     runs-on: ubuntu-latest
     steps:
-      # Checkout the repository (required in most workflows)
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # Run a simple Hello World script
-      - name: Say Hello World
-        run: echo "Hello, World!"
+      - run: |
+         echo "test"
